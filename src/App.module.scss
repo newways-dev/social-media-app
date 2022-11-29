@@ -16,3 +16,18 @@ a {
 .center {
   flex: 6;
 }
+
+:root {
+  --color: #000;
+  --background: #fff;
+  --logo: #d10895;
+  --background-soft: #f6f3f3;
+  --textColor-soft: #555;
+  --border: lightgray;
+
+  --dark-color: whitesmoke;
+  --dark-background: #222;
+  --dark-background-soft: #333;
+  --dark-color-soft: lightgray;
+  --dark-border: #444;
+}

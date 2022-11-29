@@ -1,3 +1,5 @@
+import clsx from 'clsx'
+import { useContext } from 'react'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -7,13 +9,14 @@ import {
 import { Info, Navbar, Sidebar } from './components'
 import { Home, Login, Profile, Register } from './pages'
 import styles from './App.module.scss'
+import { ThemeContext } from './context/themeContext'
 
 function App() {
   const user = true
 
   const Layout = () => {
     return (
-      <>
+      <div>
         <Navbar />
         <div className={styles.container}>
           <Sidebar />
@@ -22,7 +25,7 @@ function App() {
           </div>
           <Info />
         </div>
-      </>
+      </div>
     )
   }
 

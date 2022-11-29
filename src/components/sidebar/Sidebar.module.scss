@@ -17,11 +17,15 @@
   .container {
     padding: 20px;
 
-    hr {
+    .hr {
       margin: 20px 0px;
       border: 0;
       height: 0.5px;
       background-color: lightgray;
+    }
+
+    .darkHr {
+      background-color: var(--dark-border);
     }
 
     .menu {
@@ -65,4 +69,9 @@
       }
     }
   }
+}
+
+.darkSidebar {
+  background-color: var(--dark-background);
+  color: var(--dark-color);
 }

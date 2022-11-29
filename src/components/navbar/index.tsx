@@ -1,4 +1,9 @@
+import clsx from 'clsx'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { ThemeContext } from '../../context/themeContext'
+import styles from './Navbar.module.scss'
+
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
 import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined'
@@ -6,21 +11,34 @@ import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined'
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined'
-import styles from './Navbar.module.scss'
 
 export const Navbar = () => {
+  const { darkMode, toggle } = useContext(ThemeContext)
+
   return (
-    <div className={styles.navbar}>
+    <div
+      className={clsx(styles.navbar, {
+        [styles.dark]: darkMode,
+      })}
+    >
       <div className={styles.left}>
         <Link to='/'>
-          <span>SocialApp</span>
+          <span className={clsx(styles.logo, { [styles.darkLogo]: darkMode })}>
+            SocialApp
+          </span>
         </Link>
         <HomeOutlinedIcon />
-        <DarkModeOutlinedIcon />
+        <div className={styles.toggle} onClick={() => toggle()}>
+          <DarkModeOutlinedIcon />
+        </div>
         <GridViewOutlinedIcon />
         <div className={styles.search}>
           <SearchOutlinedIcon />
-          <input type='text' placeholder='Search...' />
+          <input
+            className={clsx({ [styles.darkInput]: darkMode })}
+            type='text'
+            placeholder='Search...'
+          />
         </div>
       </div>
       <div className={styles.right}>

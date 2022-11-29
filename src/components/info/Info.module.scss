@@ -61,13 +61,21 @@
             background-color: limegreen;
           }
 
-          p {
-            color: gray;
+          .name {
+            color: #000;
+            font-weight: 500;
           }
 
-          span {
-            font-weight: 500;
-            color: #000;
+          .darkName {
+            color: var(--dark-color);
+          }
+
+          .activity {
+            color: var(--color-soft);
+          }
+
+          .darkActivity {
+            color: var(--dark-color-soft);
           }
         }
 
@@ -93,5 +101,14 @@
         }
       }
     }
+
+    .darkItem {
+      background-color: var(--dark-background);
+    }
   }
+}
+
+.darkInfo {
+  background-color: var(--dark-background-soft);
+  color: var(--dark-color);
 }

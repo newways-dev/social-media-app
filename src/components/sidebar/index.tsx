@@ -1,3 +1,5 @@
+import clsx from 'clsx'
+import { useContext } from 'react'
 import styles from './Sidebar.module.scss'
 
 import Friends from '../../assets/images/1.png'
@@ -13,10 +15,13 @@ import Messages from '../../assets/images/10.png'
 import Tutorials from '../../assets/images/11.png'
 import Courses from '../../assets/images/12.png'
 import Fund from '../../assets/images/13.png'
+import { ThemeContext } from '../../context/themeContext'
 
 export const Sidebar = () => {
+  const { darkMode } = useContext(ThemeContext)
+
   return (
-    <div className={styles.sidebar}>
+    <div className={clsx(styles.sidebar, { [styles.darkSidebar]: darkMode })}>
       <div className={styles.container}>
         <div className={styles.menu}>
           <div className={styles.user}>
@@ -47,7 +52,7 @@ export const Sidebar = () => {
             <span>Memories</span>
           </div>
         </div>
-        <hr />
+        <hr className={clsx(styles.hr, { [styles.darkHr]: darkMode })} />
         <div className={styles.menu}>
           <span>Your shortcuts</span>
           <div className={styles.item}>
@@ -71,7 +76,8 @@ export const Sidebar = () => {
             <span>Messages</span>
           </div>
         </div>
-        <hr />
+        <hr className={clsx(styles.hr, { [styles.darkHr]: darkMode })} />
+        <hr className={clsx(styles.hr, { [styles.darkHr]: darkMode })} />
         <div className={styles.menu}>
           <span>Others</span>
           <div className={styles.item}>
