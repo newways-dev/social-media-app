@@ -14,4 +14,84 @@
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+
+  .container {
+    padding: 20px;
+
+    .item {
+      padding: 20px;
+      margin-bottom: 20px;
+
+      -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+      -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+      box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+
+      span {
+        color: gray;
+      }
+
+      .user {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0;
+
+        .userInfo {
+          position: relative;
+
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          .online {
+            position: absolute;
+            top: 0;
+            left: 30px;
+
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: limegreen;
+          }
+
+          p {
+            color: gray;
+          }
+
+          span {
+            font-weight: 500;
+            color: #000;
+          }
+        }
+
+        .buttons {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          button {
+            border: none;
+            padding: 5px 10px;
+            color: #fff;
+            cursor: pointer;
+
+            &:first-child {
+              background-color: #5271ff;
+            }
+
+            &:last-child {
+              background-color: #f0544f;
+            }
+          }
+        }
+      }
+    }
+  }
 }
