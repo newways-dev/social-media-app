@@ -2,7 +2,7 @@ import styles from './Login.module.scss'
 
 export const Login = () => {
   return (
-    <div>
+    <div className={styles.login}>
       <div className={styles.card}>
         <div className={styles.left}>
           <h1>Hello World.</h1>
@@ -17,8 +17,8 @@ export const Login = () => {
         <div className={styles.right}>
           <h1>Login</h1>
           <form>
-            <input type='text' />
-            <input type='password' />
+            <input placeholder='Username' type='text' />
+            <input placeholder='Password' type='password' />
             <button>Login</button>
           </form>
         </div>
