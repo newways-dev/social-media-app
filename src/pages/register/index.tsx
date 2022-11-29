@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from './Register.module.scss'
 
 export const Register = () => {
@@ -12,7 +13,9 @@ export const Register = () => {
             vitae vel at beatae, error nesciunt.
           </p>
           <span>Do you have an account?</span>
-          <button>Login</button>
+          <Link to='/login'>
+            <button>Login</button>
+          </Link>
         </div>
         <div className={styles.right}>
           <h1>Register</h1>
