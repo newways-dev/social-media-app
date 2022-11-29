@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { useContext } from 'react'
+import { Posts, Stories } from '../../components'
 import { ThemeContext } from '../../context/themeContext'
 import styles from './Home.module.scss'
 
@@ -8,33 +9,8 @@ export const Home = () => {
 
   return (
     <div className={clsx(styles.home, { [styles.darkHome]: darkMode })}>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
+      <Stories />
+      <Posts />
     </div>
   )
 }

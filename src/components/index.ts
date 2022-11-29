@@ -1,3 +1,5 @@
 export * from './navbar'
 export * from './sidebar'
 export * from './info'
+export * from './stories'
+export * from './posts'

@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import { useContext } from 'react'
 import {
   createBrowserRouter,
@@ -9,10 +8,10 @@ import {
 import { Info, Navbar, Sidebar } from './components'
 import { Home, Login, Profile, Register } from './pages'
 import styles from './App.module.scss'
-import { ThemeContext } from './context/themeContext'
+import { AuthContext } from './context/authContext'
 
 function App() {
-  const user = true
+  const { user } = useContext(AuthContext)
 
   const Layout = () => {
     return (
