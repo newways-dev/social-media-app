@@ -1,8 +1,15 @@
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  Navigate,
+} from 'react-router-dom'
 import { Info, Navbar, Sidebar } from './components'
 import { Home, Login, Profile, Register } from './pages'
 
 function App() {
+  const user = false
+
   const Layout = () => {
     return (
       <div>
@@ -16,10 +23,22 @@ function App() {
     )
   }
 
+  const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
+    if (!user) {
+      return <Navigate to='/login' />
+    }
+
+    return children
+  }
+
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Layout />,
+      element: (
+        <ProtectedRoute>
+          <Layout />
+        </ProtectedRoute>
+      ),
       children: [
         {
           path: '/',
