@@ -8,7 +8,7 @@ import { Info, Navbar, Sidebar } from './components'
 import { Home, Login, Profile, Register } from './pages'
 
 function App() {
-  const user = false
+  const user = true
 
   const Layout = () => {
     return (
