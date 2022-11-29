@@ -6,20 +6,23 @@ import {
 } from 'react-router-dom'
 import { Info, Navbar, Sidebar } from './components'
 import { Home, Login, Profile, Register } from './pages'
+import styles from './App.module.scss'
 
 function App() {
   const user = true
 
   const Layout = () => {
     return (
-      <div>
+      <>
         <Navbar />
-        <div style={{ display: 'flex' }}>
+        <div className={styles.container}>
           <Sidebar />
-          <Outlet />
+          <div className={styles.center}>
+            <Outlet />
+          </div>
           <Info />
         </div>
-      </div>
+      </>
     )
   }
 
