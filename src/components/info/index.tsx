@@ -67,7 +67,7 @@ export const Info = () => {
                 changed her cover image
               </p>
             </div>
-            <span>1 min ago</span>
+            <span className={styles.date}>1 min ago</span>
           </div>
           <div className={styles.user}>
             <div className={styles.userInfo}>
@@ -88,7 +88,7 @@ export const Info = () => {
                 changed her cover image
               </p>
             </div>
-            <span>1 min ago</span>
+            <span className={styles.date}>1 min ago</span>
           </div>
           <div className={styles.user}>
             <div className={styles.userInfo}>
@@ -109,7 +109,7 @@ export const Info = () => {
                 changed her cover image
               </p>
             </div>
-            <span>1 min ago</span>
+            <span className={styles.date}>1 min ago</span>
           </div>
         </div>
         <div className={clsx(styles.item, { [styles.darkItem]: darkMode })}>
