@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { Link } from 'react-router-dom'
 import { ThemeContext } from '../../context/themeContext'
-import { useContext, DetailedHTMLProps, HTMLAttributes } from 'react'
+import { useContext, DetailedHTMLProps, HTMLAttributes, useState } from 'react'
 import { PostType } from '../../types/post'
 import styles from './Post.module.scss'
 
@@ -10,6 +10,7 @@ import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined'
 import TextsmsOutlinedIcon from '@mui/icons-material/TextsmsOutlined'
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
+import { Comments } from '../comments'
 
 export interface PostProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -18,6 +19,7 @@ export interface PostProps
 
 export const Post = ({ post }: PostProps) => {
   const { darkMode } = useContext(ThemeContext)
+  const [showComments, setShowComments] = useState<boolean>(false)
 
   const liked = false
 
@@ -45,7 +47,10 @@ export const Post = ({ post }: PostProps) => {
             {liked ? <FavoriteOutlinedIcon /> : <FavoriteBorderOutlinedIcon />}
             12 Likes
           </div>
-          <div className={styles.item}>
+          <div
+            className={styles.item}
+            onClick={() => setShowComments(!showComments)}
+          >
             <TextsmsOutlinedIcon />
             12 Comments
           </div>
@@ -54,6 +59,7 @@ export const Post = ({ post }: PostProps) => {
             Share
           </div>
         </div>
+        {showComments && <Comments />}
       </div>
     </div>
   )
