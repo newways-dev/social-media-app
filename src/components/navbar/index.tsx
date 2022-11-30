@@ -30,7 +30,7 @@ export const Navbar = () => {
             SocialApp
           </span>
         </Link>
-        <HomeOutlinedIcon />
+        <HomeOutlinedIcon className={styles.icon} />
         {darkMode && (
           <WbSunnyOutlinedIcon
             className={styles.toggle}
@@ -43,9 +43,9 @@ export const Navbar = () => {
             onClick={() => toggle()}
           />
         )}
-        <GridViewOutlinedIcon />
+        <GridViewOutlinedIcon className={styles.icon} />
         <div className={styles.search}>
-          <SearchOutlinedIcon />
+          <SearchOutlinedIcon className={styles.icon} />
           <input
             className={clsx({ [styles.darkInput]: darkMode })}
             type='text'
@@ -54,9 +54,9 @@ export const Navbar = () => {
         </div>
       </div>
       <div className={styles.right}>
-        <PersonOutlinedIcon />
-        <EmailOutlinedIcon />
-        <NotificationsOutlinedIcon />
+        <PersonOutlinedIcon className={styles.icon} />
+        <EmailOutlinedIcon className={styles.icon} />
+        <NotificationsOutlinedIcon className={styles.icon} />
         <div className={styles.user}>
           <img src={user?.photo} alt='' />
           <span>{user?.name}</span>

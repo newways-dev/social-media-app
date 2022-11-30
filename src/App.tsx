@@ -15,16 +15,14 @@ function App() {
 
   const Layout = () => {
     return (
-      <div>
+      <>
         <Navbar />
         <div className={styles.container}>
           <Sidebar />
-          <div className={styles.center}>
-            <Outlet />
-          </div>
+          <div className={styles.center}>{<Outlet />}</div>
           <Info />
         </div>
-      </div>
+      </>
     )
   }
 

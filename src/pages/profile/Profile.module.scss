@@ -25,7 +25,15 @@
   }
 
   .container {
-    padding: 20px 70px;
+    padding: 20px 50px;
+
+    @media screen and (max-width: 1400px) {
+      padding: 10px 20px;
+    }
+
+    @media screen and (max-width: 720px) {
+      padding: 10px;
+    }
 
     .userInfo {
       margin-bottom: 20px;
@@ -44,10 +52,22 @@
       align-items: center;
       justify-content: space-between;
 
+      @media screen and (max-width: 1400px) {
+        margin-top: 30px;
+        flex-direction: column;
+        height: auto;
+
+        padding-bottom: 20px;
+      }
+
       .left {
         flex: 1;
         display: flex;
         gap: 10px;
+
+        @media screen and (max-width: 1400px) {
+          gap: 5px;
+        }
 
         .social {
           color: var(--color-soft);
@@ -110,6 +130,11 @@
         align-items: center;
         justify-content: flex-end;
         gap: 10px;
+        cursor: pointer;
+
+        @media screen and (max-width: 1400px) {
+          margin-top: 20px;
+        }
       }
     }
 

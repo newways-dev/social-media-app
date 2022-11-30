@@ -15,6 +15,10 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
+  @media screen and (max-width: 920px) {
+    display: none;
+  }
+
   .container {
     padding: 20px;
 
@@ -28,6 +32,10 @@
 
       span {
         color: gray;
+
+        @media screen and (max-width: 1400px) {
+          font-size: 12px;
+        }
       }
 
       .user {
@@ -37,8 +45,18 @@
         margin: 20px 0;
         cursor: pointer;
 
+        @media screen and (max-width: 1400px) {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+
         .date {
           font-size: 14px;
+
+          @media screen and (max-width: 1400px) {
+            font-size: 12px;
+          }
         }
 
         .userInfo {
@@ -47,6 +65,12 @@
           display: flex;
           align-items: center;
           gap: 20px;
+
+          @media screen and (max-width: 1400px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+          }
 
           img {
             width: 40px;
@@ -69,6 +93,16 @@
           .name {
             color: #000;
             font-weight: 500;
+
+            @media screen and (max-width: 1400px) {
+              font-size: 14px;
+            }
+          }
+
+          p {
+            @media screen and (max-width: 1400px) {
+              font-size: 14px;
+            }
           }
 
           .darkName {
