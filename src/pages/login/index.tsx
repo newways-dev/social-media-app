@@ -1,13 +1,37 @@
-import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { AxiosError } from 'axios'
+import { ChangeEvent, useContext, useState, SyntheticEvent } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/authContext'
+import { Login as LoginInputs } from '../../types/inputs'
 import styles from './Login.module.scss'
 
 export const Login = () => {
-  const { user, login } = useContext(AuthContext)
+  const { login } = useContext(AuthContext)
+  const [error, setError] = useState<string | boolean>(false)
+  const [inputs, setInputs] = useState<LoginInputs>({
+    username: '',
+    password: '',
+  })
 
-  const handleLogin = () => {
-    login()
+  const navigate = useNavigate()
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setInputs((prev) => ({ ...prev, [event.target.name]: event.target.value }))
+  }
+
+  const handleLogin = async (event: SyntheticEvent) => {
+    event.preventDefault()
+
+    try {
+      await login(inputs)
+      navigate('/')
+      setError(false)
+    } catch (error: unknown | AxiosError) {
+      if (axios.isAxiosError(error)) {
+        setError(error.response?.data)
+      }
+    }
   }
 
   return (
@@ -28,8 +52,19 @@ export const Login = () => {
         <div className={styles.right}>
           <h1>Login</h1>
           <form>
-            <input placeholder='Username' type='text' />
-            <input placeholder='Password' type='password' />
+            <input
+              onChange={handleChange}
+              name='username'
+              placeholder='Username'
+              type='text'
+            />
+            <input
+              onChange={handleChange}
+              name='password'
+              placeholder='Password'
+              type='password'
+            />
+            {error && error}
             <button onClick={handleLogin}>Login</button>
           </form>
         </div>

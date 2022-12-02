@@ -1,8 +1,10 @@
+import axios from 'axios'
 import { useState, useEffect, createContext } from 'react'
+import { Login } from '../types/inputs'
 
 interface IAuthContext {
   user: User | null
-  login: () => void
+  login: (inputs: Login) => void
 }
 
 type User = {
@@ -22,13 +24,15 @@ export const AuthContextProvider = ({
     JSON.parse(localStorage.getItem('user') || String(null))
   )
 
-  const login = () => {
-    setUser({
-      id: 1,
-      name: 'Kate React',
-      photo:
-        'https://images.unsplash.com/photo-1541971297127-c4e6f05297da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-    })
+  const login = async (inputs: Login) => {
+    const response = await axios.post(
+      'http://localhost:5000/api/auth/login',
+      inputs,
+      {
+        withCredentials: true,
+      }
+    )
+    setUser(response.data)
   }
 
   useEffect(() => {
